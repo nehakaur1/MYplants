@@ -1,0 +1,506 @@
+/* Basic reset and fonts */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #f7fff8;
+  color: #123;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #17a053;
+  /* green theme */
+  color: white;
+  padding: 2px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* subtle shadow */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Logo */
+.navbar .logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+}
+
+.navbar .logo a:hover {
+  transform: scale(1.05);
+  color: #d0f0c0;
+  /* subtle highlight on hover */
+}
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Logout button */
+.logout-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 6px 12px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  border-color: white;
+}
+
+
+.home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Background image layer */
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./assets/bg.jpg') no-repeat center center/cover;
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px) brightness(0.5);
+  /* blur + darken */
+  z-index: 1;
+}
+
+/* Hero content on top */
+.home .hero {
+  position: relative;
+  /* above overlay */
+  z-index: 2;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+}
+
+.shop-btn {
+  display: inline-block;
+  margin-top: 12px;
+  background: #2e8b57;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.shop-btn:hover {
+  background: #246b45;
+  transform: scale(1.05);
+}
+
+
+
+
+/* Shop Page */
+
+
+.shop-page {
+  padding: 20px;
+  min-height: 100dvh;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+  background: url('./assets/bg3.jpg') no-repeat center center/cover;
+}
+
+/* Blurry dark overlay for background */
+.shop-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  filter: blur(4px);
+  z-index: 1;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.filters input,
+.filters select {
+  padding: 14px 20px;
+  /* bigger padding for larger input */
+  border-radius: 14px;
+  /* slightly more rounded */
+  border: none;
+  outline: none;
+  background: rgba(101, 92, 92, 0.9);
+  /* darker and more visible */
+  color: #fff;
+  backdrop-filter: blur(6px);
+  font-weight: 600;
+  font-size: 1rem;
+  /* larger text */
+  min-width: 200px;
+  /* ensure decent width */
+  transition: all 0.3s ease;
+}
+
+.filters input::placeholder,
+.filters select option {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.filters input:hover,
+.filters select:hover {
+  background: rgba(0, 0, 0, 0.65);
+  /* darker on hover */
+  transform: scale(1.05);
+}
+
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 0 20px 60px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Product Card */
+.product-card {
+  background: rgba(255, 255, 255, 0.25);
+  /* more visible */
+
+
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  padding: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-card h3 {
+  margin: 10px 0 6px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.product-card .price {
+  color: #d0f0c0;
+  font-weight: 600;
+}
+
+.qty-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.quantity-input {
+  width: 66px;
+  padding: 6px;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+  outline: none;
+}
+
+.add-btn {
+  background: #2e8b57;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+  background: #246b45;
+  transform: scale(1.05);
+}
+
+/* Cart Page */
+.cart {
+  padding: 50px;
+  min-height: 100dvh;
+  position: relative;
+  color: #fff;
+  background: url('./assets/bg.jpg') no-repeat center center/cover;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Dark & blurry overlay */
+.cart::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* dark overlay */
+  backdrop-filter: blur(6px);
+  /* blurry effect */
+  z-index: 0;
+  /* behind content */
+}
+
+/* Make content appear above overlay */
+.cart>* {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.cart-item {
+  display: flex;
+
+  gap: 150px;
+  align-items: center;
+
+
+  background: rgba(0, 0, 0, 0.45);
+  /* dark glass */
+  backdrop-filter: blur(6px);
+  padding: 18px;
+  padding-left: 300px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.cart-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Product image */
+.cart-item img {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.cart-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Info section */
+.cart-item-info h4 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #d0f0c0;
+}
+
+.cart-item-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #eee;
+}
+
+/* Quantity controls */
+.cart-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.cart-controls input {
+  width: 60px;
+  padding: 6px;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+  outline: none;
+}
+
+
+
+
+/* Auth */
+
+
+
+.auth-container {
+  max-width: 380px;
+  margin: 40px auto;
+  background: rgba(0, 0, 0, 0.5); /* dark glass */
+  backdrop-filter: blur(8px);      /* glassy blur effect */
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Optional: background image behind the container */
+.auth-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./assets/bg.jpg') no-repeat center/cover; /* your image */
+  filter: brightness(0.5); /* darken image */
+  border-radius: 16px;
+  z-index: -1; /* behind content */
+}
+
+.auth-form input {
+  width: 92%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1); /* glassy input */
+  color: #fff;
+  backdrop-filter: blur(4px);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.auth-form input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.auth-form input:focus {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.02);
+}
+
+.auth-form button {
+  background: #2e8b57;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+}
+
+.auth-form button:hover {
+  background: #246b45;
+  transform: scale(1.05);
+}
+.auth-container p a {
+  color: #e74c3c; /* red color */
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.auth-container p a:hover {
+  text-decoration: underline;
+  color: #c0392b; /* darker red on hover */
+}
+
+
+/* small screens */
+@media (max-width: 600px) {
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    gap: 8px;
+    font-size: 14px;
+  }
+}

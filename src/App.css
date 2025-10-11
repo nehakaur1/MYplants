@@ -546,42 +546,31 @@ body {
 
 
 }
-@media (max-width: 768px) {
+/* Navbar adjustments for screens below 770px */
+@media (max-width: 770px) {
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row; /* keep items in row */
+    justify-content: space-between; /* spread logo and links */
+    flex-wrap: wrap; /* allow wrapping if needed */
     padding: 12px 20px;
+    gap: 10px;
   }
 
   .nav-links {
-    flex-direction: column;
-    width: 100%;
-    gap: 8px;
-    margin-top: 8px;
+    flex-direction: row; /* keep links in row */
+    flex-wrap: wrap; /* wrap to next line if needed */
+    justify-content: center;
+    gap: 10px; /* reduce gap for small screens */
+    width: auto; /* adjust width */
   }
 
   .nav-links a {
-    width: 100%;
-    text-align: center;
+    font-size: 14px; /* slightly smaller on small screens */
+    padding: 6px 10px;
   }
 
   .logout-btn {
-    align-self: center;
-    margin-top: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar {
-    padding: 10px 12px;
-  }
-
-  .navbar .logo a {
-    font-size: 1.3rem;
-  }
-
-  .nav-links a {
-    padding: 8px 10px;
+    padding: 6px 10px;
     font-size: 14px;
   }
 }

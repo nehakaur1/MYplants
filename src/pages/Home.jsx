@@ -9,7 +9,7 @@ const Home = () => {
       <div className="hero">
         <h1>Welcome to MYplants 🌿</h1>
         <p className="hero-subtitle">
-          Bring home fresh green vibes — indoor, outdoor & herbs.
+          Bring home fresh green vibes - indoor, outdoor & herbs.
         </p>
         <Link className="shop-btn" to="/shop">
           Shop Now
